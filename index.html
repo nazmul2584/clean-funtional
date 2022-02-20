@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-16">lets get some  <span class="font-semibold text-fuchsia-600">monyy</span></h1>
+       </header>
+       <main class="w-3/4 mx-auto">
+           <!-- balance and transection -->
+           <section class="mt-6">
+               <div class="grid grid-cols-3 gap-4  text-white">
+
+                <div class="bg-blue-300 p-8 rounded">
+                    
+                <h3 class="text-2xl">deposite</h3>
+                <h4  class="text-5xl">$ <span id="deposite-total">00</span> </h4>
+                </div>
+                <div class="bg-green-300 p-8 rounded">
+                    
+                <h3 class="text-2xl">widhrow</h3>
+                <h4 class="text-5xl">$<span id="withdraw">00</span></h4>
+                </div>
+                <div class="bg-teal-600 p-8 rounded">
+                    
+                <h3 class="text-2xl">balance</h3>
+                <h4 class="text-5xl">$ <span id="balanc-total">1200</span> </h4>
+                </div>
+
+               </div>
+           </section>
+           <!-- deposit and widhrow -->
+           <section class="mt-8">    
+               <div class="grid grid-cols-2 gap-4">
+                    
+                    <div class="bg-red-300 p-8 rounded">
+                        <h3 class="text-2xl "> plz deposite</h3>
+                    <div>
+                        <input id="deposite-input" class=" px-4 border block border-gray-400 rounded w-3/4 mb-4" type="text" placeholder="$ amout you want to deposite">
+                        
+                        <button id="diposite-button" class="bg-yellow-600 px-4 rounded py-2 text-white font-medium">deposite</button>
+                    </div>
+                    </div>
+                    <div class="bg-green-100 p-8 rounded">
+                        <h3 class="text-2xl "> plz widhrow</h3>
+                    <div>
+                        <input id="widthrow-input" class=" px-4 border block border-gray-400 rounded w-3/4 mb-4" type="text" placeholder="$ amout you want to deposite">
+                        
+                        <button id="widthrow-button" class="bg-yellow-600 px-4 rounded py-2 text-white font-medium">widhrow</button>
+                    </div>
+                    </div>
+               </div>
+           </section>
+       </main>
+       <script src="funtion.js"></script>
+</body>
+</html>
