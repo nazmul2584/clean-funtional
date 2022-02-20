@@ -11,7 +11,7 @@ function getinput (num){
 // function 2----------------get only inner text---------------------------------------
 
 function getinnertextvalu(fieldid){
-    const fildtag = document.getElementById('balanc-total');
+    const fildtag = document.getElementById(fieldid);
      const valueintext = fildtag.innerText;
      const value = parseFloat(valueintext);
      return value;
@@ -61,8 +61,7 @@ document.getElementById('widthrow-button').addEventListener('click',function(){
    const widiput = getinput('widthrow-input');
 
    const balance = getinnertextvalu('balanc-total');
-   console.log(balance);
-   console.log(widiput);
+   
 
 
 
