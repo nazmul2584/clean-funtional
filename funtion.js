@@ -1,4 +1,4 @@
-//function 1.........................................................
+//function 1...............get text make number..........................................
 
 function getinput (num){
 
@@ -8,50 +8,67 @@ function getinput (num){
     depoimputfild.value = '';
     return depoimputfildtextfigur;
 }
-// function 2......................................................
-function depototal (fildid,depoinput){
+// function 2----------------get only inner text---------------------------------------
+
+function getinnertextvalu(fieldid){
+    const fildtag = document.getElementById('balanc-total');
+     const valueintext = fildtag.innerText;
+     const value = parseFloat(valueintext);
+     return value;
+}
+// function 3................add 2 fild value .....................................
+function depototal (fildid,num){
     
-    const depototalfild = document.getElementById(fildid);
-    const depototalfildtext = depototalfild.innerText;
-    const depototalfildfigur = parseFloat(depototalfildtext);
-    totalfild = depototalfildfigur + depoinput;
-    depototalfild.innerText = totalfild
+   
+     const depototalfildfigur = getinnertextvalu(fildid);
+    let totalfild = depototalfildfigur + num;
+    document.getElementById(fildid).innerText = totalfild
    
 }
-// function 3-----------------------------------------------------------
+// function 4-----------------(make both +,- with one function)------------------------------------------
 function updatebalance(depoinput,isAdding){
-    const balancetag = document.getElementById('balanc-total');
-    const balancetagtext = balancetag.innerText;
-    const balancetagfigur =parseFloat(balancetagtext);
-    //  const totalbalance = balancetagfigur + depoinput ;
-    let totalbalance;
+  
+    const balancetagfigur = getinnertextvalu('balanc-total');
+    
+     let totalbalance;
     if (isAdding==true){
-        totalbalance = balancetagfigur + depoinput ;
+         totalbalance = balancetagfigur + depoinput ;
     }
     else{
-        totalbalance = balancetagfigur - depoinput ;
+         totalbalance = balancetagfigur - depoinput ;
     }
-     balancetag.innerText = totalbalance;
+    document.getElementById('balanc-total').innerText = totalbalance;
    
 
 }
 
-// deposite button-------------------------------------------------
+// --------------------------------------deposite button---------------------------------------------
 
 
 document.getElementById('diposite-button').addEventListener('click',function(){
 
     const depoinput = getinput('deposite-input');
+  
+  
+    if(depoinput>0){
     depototal('deposite-total',depoinput);
     updatebalance(depoinput,true);
+   }
 })
-// widthrow button/-------------------------------------------------------
+// --------------------------------------widthrow button/--------------------- ----------------------
 
 document.getElementById('widthrow-button').addEventListener('click',function(){
    const widiput = getinput('widthrow-input');
-   console.log(widiput);
-   depototal('withdraw',widiput);
-   updatebalance(widiput,false);
-  // updatebalance(depoinput,false);
 
+   const balance = getinnertextvalu('balanc-total');
+   console.log(balance);
+   console.log(widiput);
+
+
+
+   if(widiput>0 && widiput <= balance){
+    depototal('withdraw',widiput);
+    updatebalance(widiput,false);
+   }
+  
 })
